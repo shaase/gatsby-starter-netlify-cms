@@ -34,38 +34,41 @@ collections:
 
   - name: "links"
     label: "Links"
-    folder: "src/pages/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "link",
-        }
-      - { label: "Text", name: "text", widget: "markdown" }
-      - { label: "URL", name: "url", widget: "string" }
+    extension: "json"
+    editor:
+      preview: false
+
+    files:
+      - file: "src/data/links.json"
+        label: "Link"
+        name: "link"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Text", name: "text", widget: "markdown" }
+          - { label: "URL", name: "url", widget: "string" }
 
   - name: "shows"
     label: "Shows"
-    folder: "src/pages/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "blog-post",
-        }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
-      - { label: "Featured Image", name: "featuredimage", widget: image }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
+    extension: "json"
+    editor:
+      preview: false
+
+    files:
+      - file: "src/data/shows.json"
+        label: "Show"
+        name: "show"
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+
+          - label: "Links"
+            name: "links"
+            widget: "relation"
+            collection: "links"
+            search_fields: ["Title"]
+            value_field: "Title"
+            display_fields: ["Title", "Text", "URL"]
 
   - name: "pages"
     label: "Pages"
