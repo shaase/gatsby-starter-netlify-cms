@@ -35,6 +35,7 @@ collections:
   - name: "links"
     label: "Links"
     extension: "json"
+    create: true
     editor:
       preview: false
 
@@ -50,6 +51,7 @@ collections:
   - name: "shows"
     label: "Shows"
     extension: "json"
+    create: true
     editor:
       preview: false
 
