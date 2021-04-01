@@ -1,13 +1,16 @@
 ---
 templateKey: blog-post
-title: Making sense of the SCAA’s new Flavor Wheel
-date: 2016-12-17T15:04:10.000Z
-featuredpost: false
+text: LENVIMA® (lenvatinib) capsules
 featuredimage: /img/flavor_wheel.jpg
-description: The Coffee Taster’s Flavor Wheel, the official resource used by coffee tasters, has been revised for the first time this year.
+featuredpost: false
+date: 2016-12-17T15:04:10.000Z
+url: http://eisai.oncportfolio.com
+title: Making sense of the SCAA’s new Flavor Wheel
 tags:
   - flavor
   - tasting
+description: The Coffee Taster’s Flavor Wheel, the official resource used by
+  coffee tasters, has been revised for the first time this year.
 ---
 ![flavor wheel](/img/flavor_wheel.jpg)
 
