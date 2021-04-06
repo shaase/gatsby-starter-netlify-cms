@@ -36,7 +36,7 @@ collections:
         hint: >-
           The links visible for the show
         collection: link
-        valueField: title
+        valueField: "{{slug}}"
         searchFields: ["title", "url"]
         displayFields: ["title", "url"]
   - name: link
