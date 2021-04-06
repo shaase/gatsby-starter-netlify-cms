@@ -50,7 +50,7 @@ collections:
         required: true
         hint: >-
           Internal name for the link (must be unique)
-      - widget: string
+      - widget: markdown
         name: label
         label: Label
         required: true
