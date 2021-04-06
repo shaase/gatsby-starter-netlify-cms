@@ -27,7 +27,7 @@ collections:
         name: link
         label: Link
         required: true
-        multiple: true;
+        multiple: true
         hint: >-
           The links visible for the show
         collection: link
@@ -46,7 +46,7 @@ collections:
         hint: >-
           Internal name for the link (must be unique)
       - widget: string
-        name: title
+        name: label
         label: Label
         required: true
         hint: >-
