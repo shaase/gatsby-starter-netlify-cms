@@ -37,21 +37,16 @@ collections:
           The links visible for the show
         collection: link
         valueField: title
-        searchFields: ["title"]
-        displayFields: ["title"]
+        searchFields: ["title", "url"]
+        displayFields: ["title", "url"]
   - name: link
     label: Links
     folder: src/markdown/links
     create: true
+    slug: "{{title}}_{{url}}"
     fields:
-      - widget: string
-        name: title
-        label: Name
-        required: true
-        hint: >-
-          Internal name for the link (must be unique)
       - widget: markdown
-        name: label
+        name: title
         label: Label
         required: true
         hint: >-
