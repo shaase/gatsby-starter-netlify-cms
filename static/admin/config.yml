@@ -63,7 +63,7 @@ collections:
       - label: "Links"
         name: "links"
         widget: "relation"
+        multiple: true
         collection: "links"
-        search_fields: ["Title"]
         value_field: "Title"
-        display_fields: ["Title", "Label", "URL"]
+        search_fields: ["Title"]
