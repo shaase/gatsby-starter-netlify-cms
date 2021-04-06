@@ -11,133 +11,49 @@ backend:
 media_folder: static/img
 public_folder: /img
 
-# collections:
-#   - name: "blog"
-#     label: "Blog"
-#     folder: "src/pages/blog"
-#     create: true
-#     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-#     fields:
-#       - {
-#           label: "Template Key",
-#           name: "templateKey",
-#           widget: "hidden",
-#           default: "blog-post",
-#         }
-#       - { label: "Title", name: "title", widget: "string" }
-#       - { label: "Publish Date", name: "date", widget: "datetime" }
-#       - { label: "Description", name: "description", widget: "text" }
-#       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
-#       - { label: "Featured Image", name: "featuredimage", widget: image }
-#       - { label: "Body", name: "body", widget: "markdown" }
-#       - { label: "Tags", name: "tags", widget: "list" }
-
-# - name: "links"
-#   label: "Links"
-#   label_singular: "Link"
-#   folder: "src/markdown/links"
-#   create: true
-#   fields:
-#     - label: "Title"
-#       name: "title"
-#       widget: "string"
-
-#     - label: "Label"
-#       name: "label"
-#       widget: "markdown"
-
-#     - label: "URL"
-#       name: "url"
-#       widget: "string"
-
-# - name: "shows"
-#   label: "Shows"
-#   label_singular: "Show2"
-#   folder: "src/markdown/shows"
-#   create: true
-#   fields:
-#     - label: "Title"
-#       name: "title"
-#       widget: "string"
-
-#     - label: "Links"
-#       name: "show-links"
-#       widget: "relation"
-#       multiple: true
-#       collection: "links"
-#       value_field: "Title"
-#       search_fields: ["Title"]
 collections:
-  - name: post
-    label: Posts
-    folder: content/posts
+  - name: show
+    label: Shows
+    folder: src/markdown/links
     create: true
-    slug: "{{slug}}"
     fields:
       - widget: string
         name: title
         label: Title
         required: true
         hint: >-
-          The title of the blog post
-      - widget: date
-        name: date
-        label: Date
-        required: true
-        hint: >-
-          The date the post is published
-      - widget: string
-        name: slug
-        label: Slug
-        required: true
-        hint: >-
-          The post URL (do not include folder or file extension)
+          The title of the show, used for the /subfolder on the site, campaign id and R&D /subolder
       - widget: relation
-        name: author
-        label: Author
+        name: link
+        label: Link
         required: true
+        multiple: true;
         hint: >-
-          The author of the post
-        collection: author
-        valueField: slug
+          The links visible for the show
+        collection: link
+        valueField: title
         searchFields: ["title"]
         displayFields: ["title"]
-      - widget: relation
-        name: related_posts
-        label: Related Posts
-        required: false
-        multiple: true
-        hint: >-
-          Other related posts
-        collection: post
-        valueField: slug
-        searchFields: ["title"]
-        displayFields: ["title"]
-      - widget: markdown
-        name: body
-        label: Content
-        required: true
-        hint: Page content
-  - name: author
-    label: Authors
-    folder: content/authors
+  - name: link
+    label: Links
+    folder: src/markdown/links
     create: true
-    slug: "{{slug}}"
     fields:
       - widget: string
         name: title
         label: Name
         required: true
         hint: >-
-          The name of the author
+          Internal name for the link (must be unique)
       - widget: string
-        name: slug
-        label: Slug
+        name: title
+        label: Label
         required: true
         hint: >-
-          The post URL (do not include folder or file extension)
-      - widget: markdown
-        name: body
-        label: Content
+          Visual text label on the site
+      - widget: string
+        name: url
+        label: URL
         required: true
-        hint: Author bio
+        hint: >-
+          HTTP url target for link
