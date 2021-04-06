@@ -44,6 +44,7 @@ collections:
     folder: src/markdown/links
     create: true
     slug: "{{title}}_{{url}}"
+    identifierField: "{{slug}}"
     fields:
       - widget: markdown
         name: title
