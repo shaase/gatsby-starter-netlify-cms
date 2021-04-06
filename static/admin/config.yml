@@ -41,8 +41,8 @@ collections:
         name: "title"
         widget: "string"
 
-      - label: "Text"
-        name: "title"
+      - label: "Label"
+        name: "label"
         widget: "markdown"
 
       - label: "URL"
