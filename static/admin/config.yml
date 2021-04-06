@@ -36,8 +36,9 @@ collections:
         hint: >-
           The links visible for the show
         collection: link
-        search_fields: ["title", "url"]
-        display_fields: ["title", "url"]
+        valueField: title
+        searchFields: ["title", "url"]
+        displayFields: ["title", "url"]
   - name: link
     label: Links
     folder: src/markdown/links
