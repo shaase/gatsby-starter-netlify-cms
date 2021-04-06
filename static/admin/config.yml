@@ -14,7 +14,7 @@ public_folder: /img
 collections:
   - name: show
     label: Shows
-    folder: src/markdown/links
+    folder: src/markdown/shows
     create: true
     fields:
       - widget: string
@@ -22,7 +22,12 @@ collections:
         label: Title
         required: true
         hint: >-
-          The title of the show, used for the /subfolder on the site, campaign id and R&D /subolder
+          The title of the show, used for the /subfolder on the site and campaign id
+      - widget: boolean
+        name: research
+        label: Custom Research Microsite Link
+        hint: >-
+          Whether to use show Title for links to eisaioncologyresearch
       - widget: relation
         name: link
         label: Link
