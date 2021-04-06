@@ -1,69 +1,146 @@
+# backend:
+#   name: git-gateway
+#   branch: master
+#   commit_messages:
+#     create: "Create {{collection}} “{{slug}}”"
+#     update: "Update {{collection}} “{{slug}}”"
+#     delete: "Delete {{collection}} “{{slug}}”"
+#     uploadMedia: "[skip ci] Upload “{{path}}”"
+#     deleteMedia: "[skip ci] Delete “{{path}}”"
+
 backend:
-  name: git-gateway
-  branch: master
-  commit_messages:
-    create: "Create {{collection}} “{{slug}}”"
-    update: "Update {{collection}} “{{slug}}”"
-    delete: "Delete {{collection}} “{{slug}}”"
-    uploadMedia: "[skip ci] Upload “{{path}}”"
-    deleteMedia: "[skip ci] Delete “{{path}}”"
+  name: test-repo
 
 media_folder: static/img
 public_folder: /img
 
+# collections:
+#   - name: "blog"
+#     label: "Blog"
+#     folder: "src/pages/blog"
+#     create: true
+#     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+#     fields:
+#       - {
+#           label: "Template Key",
+#           name: "templateKey",
+#           widget: "hidden",
+#           default: "blog-post",
+#         }
+#       - { label: "Title", name: "title", widget: "string" }
+#       - { label: "Publish Date", name: "date", widget: "datetime" }
+#       - { label: "Description", name: "description", widget: "text" }
+#       - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
+#       - { label: "Featured Image", name: "featuredimage", widget: image }
+#       - { label: "Body", name: "body", widget: "markdown" }
+#       - { label: "Tags", name: "tags", widget: "list" }
+
+# - name: "links"
+#   label: "Links"
+#   label_singular: "Link"
+#   folder: "src/markdown/links"
+#   create: true
+#   fields:
+#     - label: "Title"
+#       name: "title"
+#       widget: "string"
+
+#     - label: "Label"
+#       name: "label"
+#       widget: "markdown"
+
+#     - label: "URL"
+#       name: "url"
+#       widget: "string"
+
+# - name: "shows"
+#   label: "Shows"
+#   label_singular: "Show2"
+#   folder: "src/markdown/shows"
+#   create: true
+#   fields:
+#     - label: "Title"
+#       name: "title"
+#       widget: "string"
+
+#     - label: "Links"
+#       name: "show-links"
+#       widget: "relation"
+#       multiple: true
+#       collection: "links"
+#       value_field: "Title"
+#       search_fields: ["Title"]
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: post
+    label: Posts
+    folder: content/posts
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "blog-post",
-        }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Featured Post", name: "featuredpost", widget: "boolean" }
-      - { label: "Featured Image", name: "featuredimage", widget: image }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list" }
-
-  - name: "links"
-    label: "Links"
-    label_singular: "Link"
-    folder: "src/markdown/links"
-    create: true
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Label"
-        name: "label"
-        widget: "markdown"
-
-      - label: "URL"
-        name: "url"
-        widget: "string"
-
-  - name: "shows"
-    label: "Shows"
-    label_singular: "Show"
-    folder: "src/markdown/shows"
-    create: true
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
-      - label: "Links"
-        name: "links"
-        widget: "relation"
+      - widget: string
+        name: title
+        label: Title
+        required: true
+        hint: >-
+          The title of the blog post
+      - widget: date
+        name: date
+        label: Date
+        required: true
+        hint: >-
+          The date the post is published
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
+        hint: >-
+          The post URL (do not include folder or file extension)
+      - widget: relation
+        name: author
+        label: Author
+        required: true
+        hint: >-
+          The author of the post
+        collection: author
+        valueField: slug
+        searchFields: ["title"]
+        displayFields: ["title"]
+      - widget: relation
+        name: related_posts
+        label: Related Posts
+        required: false
         multiple: true
-        collection: "links"
-        value_field: "Title"
-        search_fields: ["Title"]
+        hint: >-
+          Other related posts
+        collection: post
+        valueField: slug
+        searchFields: ["title"]
+        displayFields: ["title"]
+      - widget: markdown
+        name: body
+        label: Content
+        required: true
+        hint: Page content
+  - name: author
+    label: Authors
+    folder: content/authors
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - widget: string
+        name: title
+        label: Name
+        required: true
+        hint: >-
+          The name of the author
+      - widget: string
+        name: slug
+        label: Slug
+        required: true
+        hint: >-
+          The post URL (do not include folder or file extension)
+      - widget: markdown
+        name: body
+        label: Content
+        required: true
+        hint: Author bio
