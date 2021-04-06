@@ -25,6 +25,7 @@ collections:
           The title of the show, used for the /subfolder on the site and campaign id
       - widget: boolean
         name: research
+        default: false
         label: Custom Research Microsite Link
         hint: >-
           Whether to use show Title for links to eisaioncologyresearch
