@@ -14,6 +14,7 @@ public_folder: /img
 collections:
   - name: show
     label: Shows
+    label_singular: Show
     folder: src/markdown/shows
     create: true
     fields:
@@ -42,6 +43,7 @@ collections:
         displayFields: ["title", "url"]
   - name: link
     label: Links
+    label_singular: Link
     folder: src/markdown/links
     create: true
     fields:

@@ -1,5 +1,5 @@
 ---
-title: ContactUs -> /ContactUs
+title: ContactUs (/ContactUs)
 label: CONTACT US
 url: /ContactUs
 ---
