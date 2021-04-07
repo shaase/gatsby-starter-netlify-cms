@@ -39,8 +39,8 @@ collections:
           The links visible for the show
         collection: link
         valueField: title
-        searchFields: ["title", "url"]
-        displayFields: ["title", "url"]
+        searchFields: ["title"]
+        displayFields: ["title"]
   - name: link
     label: Links
     label_singular: Link
