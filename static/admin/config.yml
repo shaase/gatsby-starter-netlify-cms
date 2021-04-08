@@ -12,12 +12,17 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: show
+  - name: shows
     label: Shows
     label_singular: Show
-    folder: src/markdown/shows
+    folder: src/cms/markdown/shows
     create: true
+    slug: "/{{title}}"
     fields:
+      - widget: hidden
+        name: templateKey
+        label: Template Key
+        default: show
       - widget: string
         name: title
         label: Title
@@ -37,14 +42,14 @@ collections:
         multiple: true
         hint: >-
           The links visible for the show
-        collection: link
+        collection: links
         valueField: title
         searchFields: ["title"]
         displayFields: ["title"]
-  - name: link
+  - name: links
     label: Links
     label_singular: Link
-    folder: src/markdown/links
+    folder: src/cms/markdown/links
     create: true
     fields:
       - widget: string

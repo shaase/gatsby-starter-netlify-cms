@@ -1,0 +1,123 @@
+body {
+  margin: 0 auto;
+  background-color: #fff;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+}
+
+header {
+  background-image: url("images/Eisai_main_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left bottom;
+  background-attachment: scroll;
+  width: 100%;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+h1 {
+  letter-spacing: 0.4rem;
+  font-weight: 500;
+}
+.logo {
+  width: 130px;
+}
+.main-nav {
+  background-image: url("images/eisai_nav_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  margin-bottom: 100px;
+  min-height: 550px;
+}
+.container {
+  max-width: 1350px !important;
+}
+.above-nav,
+.below-nav {
+  display: none;
+}
+.nav {
+  padding-top: 10px;
+}
+.nav .nav-item {
+  height: 98px;
+  padding-top: 20px;
+  text-align: right;
+}
+.nav .nav-item:first-child {
+  margin-top: 50px;
+}
+.nav .nav-item .nav-link {
+  color: #fff;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  transition: none;
+  display: inline-block;
+}
+.nav .nav-item .nav-link:hover {
+  color: #72bcd4;
+}
+.txt-normalize {
+  letter-spacing: 0;
+}
+.first-section,
+.disclaimer {
+  color: #184478;
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.3rem;
+    line-height: 3rem;
+  }
+  p,
+  .nav .nav-item {
+    text-align: center;
+  }
+  .headline {
+    padding-top: 20px;
+  }
+  .main-nav {
+    background-image: none;
+    background-position: center center;
+    margin-bottom: 70px;
+  }
+  header {
+    background-image: url("images/Eisai_main_mobile_bg.jpg");
+    background-position: center left;
+  }
+  .logo {
+    width: 80px;
+  }
+  .above-nav,
+  .below-nav {
+    display: inline-block;
+    display: block;
+    max-width: 100%;
+  }
+  .nav .nav-item .nav-link {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    border-top: 3px solid rgba(255, 255, 255, 0.1);
+    height: 100px;
+    padding: 40px 0;
+  }
+  .last-item {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+  }
+}
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+  .main-nav,
+  header {
+    background-position: center center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1324px) {
+  .nav .nav-item {
+    height: 92px;
+  }
+}

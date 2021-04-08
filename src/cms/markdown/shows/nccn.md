@@ -1,6 +1,8 @@
 ---
-title: index
-templateKey: index-page
+title: nccn
+slug: /nccn
+templateKey: show
+research: false
 links:
   - Lenvima (http://eisai.oncportfolio.com)
   - HALAVEN (http://eisai.oncportfolio.com)

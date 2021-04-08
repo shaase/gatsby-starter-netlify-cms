@@ -1,6 +1,8 @@
 ---
-title: index
-templateKey: index-page
+title: ons
+slug: /ons
+templateKey: show
+research: false
 links:
   - Lenvima (http://eisai.oncportfolio.com)
   - HALAVEN (http://eisai.oncportfolio.com)
