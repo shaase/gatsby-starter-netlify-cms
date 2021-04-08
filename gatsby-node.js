@@ -1,7 +1,5 @@
 const _ = require("lodash");
 const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
-const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -12,10 +10,8 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             id
-            fields {
-              slug
-            }
             frontmatter {
+              slug
               links
               templateKey
             }
@@ -29,30 +25,22 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    const shows = result.data.allMarkdownRemark.edges;
-    shows.forEach((edge) => {
+    const { edges } = result.data.allMarkdownRemark;
+    edges.forEach((edge) => {
       const { node } = edge;
       const { id, frontmatter } = node;
-      const slug = edge.node.fields.slug;
-      const template = `src/templates/${String(frontmatter.templateKey)}.tsx`;
+      const { slug, templateKey, links } = frontmatter;
+      const template = `src/templates/${templateKey}.tsx`;
+      const context = { id, slug };
+
+      console.log(templateKey);
 
       createPage({
-        path: edge.node.fields.slug,
-        links: edge.node.frontmatter.links,
+        path: slug,
+        links,
         component: path.resolve(template),
-        // additional data can be passed via context
         context: { id, slug },
       });
     });
   });
-};
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  fmImagesToRelative(node); // convert image paths for gatsby images
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
-    createNodeField({ name: `slug`, node, value });
-  }
 };

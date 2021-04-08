@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./index.module.scss";
+import * as styles from "./index.module.scss";
 
 interface Props {
   title: string;
@@ -7,8 +7,9 @@ interface Props {
 }
 
 const NotFound: React.FC<Props> = ({ title, description }: Props) => {
+  console.log(styles);
   return (
-    <div className={styles.container}>
+    <div>
       <h1>{title}</h1>
       <p>{description}</p>
     </div>

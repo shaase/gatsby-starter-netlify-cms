@@ -2,14 +2,6 @@ interface MarkdownRemark<T> {
   frontmatter: T;
 }
 
-interface Contact {
-  name: string;
-  title: string;
-  photo: string;
-  email?: string;
-  region?: string;
-}
-
 interface Link {
   title: string;
   label: string;
@@ -18,6 +10,14 @@ interface Link {
 
 export interface MarkdownData<T> {
   markdownRemark: MarkdownRemark<T>;
+}
+
+export interface Contact {
+  name: string;
+  title: string;
+  photo: string;
+  email?: string;
+  region?: string;
 }
 
 export interface Contacts {

@@ -38,7 +38,26 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         title
-        contacts
+        contacts {
+          corporateAffairs {
+            name
+            title
+            email
+            photo
+          }
+          accountManagers {
+            name
+            title
+            photo
+            region
+          }
+          media {
+            name
+            title
+            email
+            photo
+          }
+        }
       }
     }
   }

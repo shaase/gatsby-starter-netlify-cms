@@ -15,7 +15,7 @@ collections:
   - name: shows
     label: Shows
     label_singular: Show
-    folder: src/cms/markdown/shows
+    folder: src/markdown/shows
     create: true
     slug: "/{{title}}"
     fields:
@@ -49,7 +49,7 @@ collections:
   - name: links
     label: Links
     label_singular: Link
-    folder: src/cms/markdown/links
+    folder: src/markdown/links
     create: true
     fields:
       - widget: string

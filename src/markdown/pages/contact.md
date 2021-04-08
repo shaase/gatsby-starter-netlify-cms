@@ -1,6 +1,7 @@
 ---
 title: contact
 templateKey: contact
+slug: /contact
 contacts:
   - corporateAffairs:
       - name: Joel Beetsch

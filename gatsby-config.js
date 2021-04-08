@@ -16,18 +16,18 @@ module.exports = {
         name: "uploads",
       },
     },
-    // {
-    //   resolve: "gatsby-source-filesystem",
-    //   options: {
-    //     path: `${__dirname}/src/pages`,
-    //     name: "pages",
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/markdown/pages`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `shows`,
-        path: `${__dirname}/src/cms/markdown/shows`,
+        path: `${__dirname}/src/markdown/shows`,
       },
     },
     {
@@ -52,10 +52,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 2048,
+              maxWidth: 2048, // important for generating image widths
             },
           },
           {
@@ -70,9 +67,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typescript`,
       options: {
-        isTSX: true, // defaults to false
-        // jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
+        isTSX: true,
+        allExtensions: true,
       },
     },
     {
@@ -82,10 +78,10 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
+      resolve: "gatsby-plugin-purgecss",
       options: {
-        develop: true, // Activates purging in npm run develop
-        purgeOnly: ["/all.sass"], // applies purging only on the bulma css file
+        develop: true,
+        purgeOnly: ["/all.sass"],
       },
     }, // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
