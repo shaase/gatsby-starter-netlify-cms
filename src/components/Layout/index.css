@@ -1,3 +1,20 @@
+@font-face {
+  font-family: "HelveticaNeueLTPro";
+  src: url("../../fonts/HelveticaNeueLTPro-Roman.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTPro";
+  src: url("../../fonts/HelveticaNeueLTPro-Md.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "HelveticaNeueLTPro";
+  src: url("../../fonts/HelveticaNeueLTProBd.otf") format("opentype");
+  font-weight: bold;
+}
+
 body {
   margin: 0 auto;
   background-color: #fff;
@@ -6,7 +23,7 @@ body {
 }
 
 header {
-  background-image: url("images/Eisai_main_bg.jpg");
+  background-image: url("../../img/Eisai_main_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left bottom;
@@ -25,7 +42,7 @@ h1 {
   width: 130px;
 }
 .main-nav {
-  background-image: url("images/eisai_nav_bg.png");
+  background-image: url("../../img/eisai_nav_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -86,7 +103,7 @@ h1 {
     margin-bottom: 70px;
   }
   header {
-    background-image: url("images/Eisai_main_mobile_bg.jpg");
+    background-image: url("../../img/Eisai_main_mobile_bg.jpg");
     background-position: center left;
   }
   .logo {

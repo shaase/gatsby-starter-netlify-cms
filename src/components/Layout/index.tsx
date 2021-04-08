@@ -2,7 +2,7 @@ import React from "react";
 import { withPrefix } from "gatsby";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "../SiteMetadata";
-import "./index.sass";
+import "./index.css";
 
 interface Props {
   children?: React.ReactNode;
