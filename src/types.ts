@@ -12,6 +12,19 @@ export interface MarkdownData<T> {
   markdownRemark: MarkdownRemark<T>;
 }
 
+export interface MarkdownEdge<T> {
+  node: MarkdownRemark<T>;
+}
+
+export interface MarkdownAllResults<T> {
+  edges: MarkdownEdge<T>[];
+}
+
+export interface ShowMarkdown {
+  allLinks: MarkdownAllResults<Link>;
+  show: MarkdownRemark<ShowMarkup>;
+}
+
 export interface Contact {
   name: string;
   title: string;
@@ -31,7 +44,21 @@ export interface Show {
   links: Link[];
 }
 
+export interface ShowMarkup {
+  title: string;
+  links: string[];
+}
+
+export interface ShowAndLinks {
+  title: string;
+  links: Link[];
+}
+
 export interface NotFound404 {
   title: string;
   message: string;
+}
+
+export interface LinkDic {
+  [key: string]: Link;
 }

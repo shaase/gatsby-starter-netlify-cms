@@ -14,6 +14,9 @@ exports.createPages = ({ actions, graphql }) => {
               slug
               links
               templateKey
+              title
+              label
+              url
             }
           }
         }
@@ -32,13 +35,13 @@ exports.createPages = ({ actions, graphql }) => {
       const { slug, templateKey, links } = frontmatter;
       const template = `src/templates/${templateKey}.tsx`;
       const context = { id, slug };
-
-      createPage({
-        path: slug,
-        links,
-        component: path.resolve(template),
-        context: { id, slug },
-      });
+      if (templateKey !== null) {
+        createPage({
+          path: slug,
+          component: path.resolve(template),
+          context: { id, slug },
+        });
+      }
     });
   });
 };

@@ -1,5 +1,5 @@
 ---
 title: HHC (http://eisai.hhcphilosophy.com)
-label: "*human health care* INSPIRATION"
+label: <i>human health care</i> INSPIRATION
 url: http://eisai.hhcphilosophy.com
 ---

@@ -1,8 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Show, MarkdownData } from "../types";
+import { Show, ShowMarkdown, LinkDic } from "../types";
 import Layout from "../components/Layout";
 import ShowComponent from "../components/Show";
+
+const linkDic: LinkDic = {};
 
 // TEMPLATE
 interface TemplateProps {
@@ -17,25 +19,43 @@ export const ShowTemplate: React.FC<TemplateProps> = ({
 
 // PAGE
 interface PageProps {
-  data: MarkdownData<Show>;
+  data: ShowMarkdown;
 }
 
 const ShowPage: React.FC<PageProps> = ({ data }: PageProps) => {
-  const { title, links } = data.markdownRemark.frontmatter;
+  const { allLinks, show } = data;
 
-  return (
-    <Layout>
-      <ShowTemplate show={{ title, links }} />
-    </Layout>
-  );
+  allLinks.edges.forEach((node) => {
+    const { title, label, url } = node.node.frontmatter;
+    linkDic[title] = { title, label, url };
+  });
+
+  const { title, links: stringLinks } = show.frontmatter;
+  const links = stringLinks.map((l) => linkDic[l]);
+
+  return <Layout>{<ShowTemplate show={{ title, links }} />}</Layout>;
 };
 
 export default ShowPage;
 
 // GRAPHQL
 export const pageQuery = graphql`
-  query ShowTemplate($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  query ShowTemplate($slug: String! = "/asco") {
+    allLinks: allMarkdownRemark(
+      filter: { frontmatter: { url: { ne: null } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            label
+            url
+          }
+        }
+      }
+    }
+    show: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         slug
         title

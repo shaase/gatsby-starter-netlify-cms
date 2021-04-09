@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import { Show } from "../../types";
 import styles from "./index.module.scss";
 
@@ -6,23 +7,26 @@ interface Props {
   show: Show;
 }
 
-// const matches = (key: string, links: Link[]): boolean => {
-//   const filtered = links.filter((l) => l.includes(key));
-//   return filtered.length > 0;
-// };
-
 const ShowComponent: React.FC<Props> = ({ show }: Props) => {
   const { title, links } = show;
-  // const hasLenvima = matches("Lenvima", links);
-  // const hasHalaven = matches("Halaven", links);
-  // console.log(links, hasLenvima, hasHalaven);
+  const products = links
+    .filter((l) => l.title.includes("Lenvima") || l.title.includes("Halaven"))
+    .map((l) => l.label);
+
   return (
     <div className={styles.container}>
       <div>
         {title}
+        <div>
+          {parse(products[0])}{" "}
+          {products.length > 1 && <>and {parse(products[1])}</>}
+        </div>
+
         <br />
         <br />
-        {React.Children.toArray(links.map((link) => <div>{link}</div>))}
+        {React.Children.toArray(
+          links.map((link) => <a href={link.url}>{parse(link.label)}</a>)
+        )}
       </div>
     </div>
   );
