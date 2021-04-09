@@ -33,8 +33,6 @@ exports.createPages = ({ actions, graphql }) => {
       const template = `src/templates/${templateKey}.tsx`;
       const context = { id, slug };
 
-      console.log(templateKey);
-
       createPage({
         path: slug,
         links,

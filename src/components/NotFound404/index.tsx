@@ -1,17 +1,16 @@
 import React from "react";
-import * as styles from "./index.module.scss";
+// import * as styles from "./index.module.scss";
 
 interface Props {
   title: string;
-  description: string;
+  message: string;
 }
 
-const NotFound: React.FC<Props> = ({ title, description }: Props) => {
-  console.log(styles);
+const NotFound: React.FC<Props> = ({ title, message }: Props) => {
   return (
     <div>
       <h1>{title}</h1>
-      <p>{description}</p>
+      <p>{message}</p>
     </div>
   );
 };

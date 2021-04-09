@@ -33,5 +33,5 @@ export interface Show {
 
 export interface NotFound404 {
   title: string;
-  description: string;
+  message: string;
 }

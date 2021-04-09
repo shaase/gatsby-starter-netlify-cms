@@ -22,10 +22,11 @@ interface PageProps {
 
 const ContactPage: React.FC<PageProps> = ({ data }: PageProps) => {
   const { frontmatter } = data.markdownRemark;
+  const contacts: Contacts = { ...frontmatter };
 
   return (
     <Layout>
-      <ContactTemplate contacts={frontmatter} />
+      <ContactTemplate contacts={contacts} />
     </Layout>
   );
 };
@@ -38,25 +39,23 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         title
-        contacts {
-          corporateAffairs {
-            name
-            title
-            email
-            photo
-          }
-          accountManagers {
-            name
-            title
-            photo
-            region
-          }
-          media {
-            name
-            title
-            email
-            photo
-          }
+        corporateAffairs {
+          name
+          title
+          email
+          photo
+        }
+        accountManagers {
+          name
+          title
+          photo
+          region
+        }
+        media {
+          name
+          title
+          email
+          photo
         }
       }
     }

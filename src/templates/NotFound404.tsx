@@ -7,14 +7,14 @@ import Component from "../components/NotFound404";
 // TEMPLATE
 interface TemplateProps {
   title: string;
-  description: string;
+  message: string;
 }
 
 export const NotFoundTemplate: React.FC<TemplateProps> = ({
   title,
-  description,
+  message,
 }: TemplateProps) => {
-  return <Component title={title} description={description} />;
+  return <Component title={title} message={message} />;
 };
 
 // PAGE
@@ -23,11 +23,12 @@ interface PageProps {
 }
 
 const NotFoundPage: React.FC<PageProps> = ({ data }: PageProps) => {
-  const { title, description } = data.markdownRemark.frontmatter;
+  console.log(data);
+  const { title, message } = data.markdownRemark.frontmatter;
 
   return (
     <Layout>
-      <NotFoundTemplate title={title} description={description} />
+      <NotFoundTemplate title={title} message={message} />
     </Layout>
   );
 };
@@ -37,10 +38,10 @@ export default NotFoundPage;
 // GRAPHQL
 export const pageQuery = graphql`
   query NotFoundTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "404" } }) {
+    markdownRemark(frontmatter: { templateKey: { eq: "NotFound404" } }) {
       frontmatter {
         title
-        description
+        message
       }
     }
   }

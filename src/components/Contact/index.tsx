@@ -1,17 +1,18 @@
 import React from "react";
 import { Contacts } from "../../types";
-import Profile from "./profile";
-import styles from "./index.module.scss";
+// import Profile from "./profile";
+// import styles from "./index.module.scss";
 
 interface Props {
   contacts: Contacts;
 }
 
 const Contact: React.FC<Props> = ({ contacts }: Props) => {
-  const { corporateAffairs, accountManagers, media } = contacts;
+  console.log(contacts);
+  // const { corporateAffairs, accountManagers, media } = contacts;
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
+    <div>
+      {/* <div className={styles.content}>
         <div className={styles.header}>
           <div>
             <h1>EISAI ONCOLOGY</h1>
@@ -61,7 +62,7 @@ const Contact: React.FC<Props> = ({ contacts }: Props) => {
       <div className={styles.chevron}>
         <img src="images/chevron.svg" alt="page arrow" />
       </div>
-      <div className={styles.bottom}></div>
+      <div className={styles.bottom}></div> */}
     </div>
   );
 };

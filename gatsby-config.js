@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   siteMetadata: {
     title: "Gatsby + Netlify CMS Starter",
@@ -6,8 +8,22 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
-    "gatsby-plugin-scss-typescript",
+    {
+      resolve: "gatsby-plugin-scss-typescript",
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
+        sassLoaderOptions: {
+          sassOptions: {
+            includePaths: [path.resolve(__dirname, "./src/components/*")],
+          },
+        },
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
@@ -23,13 +39,13 @@ module.exports = {
         path: `${__dirname}/src/markdown/pages`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `shows`,
-        path: `${__dirname}/src/markdown/shows`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `shows`,
+    //     path: `${__dirname}/src/markdown/shows`,
+    //   },
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -77,13 +93,6 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    {
-      resolve: "gatsby-plugin-purgecss",
-      options: {
-        develop: true,
-        purgeOnly: ["/all.sass"],
-      },
-    }, // must be after other CSS plugins
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 };
