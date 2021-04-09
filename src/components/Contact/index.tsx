@@ -8,10 +8,20 @@ interface Props {
 }
 
 const Contact: React.FC<Props> = ({ contacts }: Props) => {
-  console.log(contacts);
-  // const { corporateAffairs, accountManagers, media } = contacts;
+  const { corporateAffairs, accountManagers, media } = contacts;
   return (
     <div>
+      <h1>EISAI ONCOLOGY</h1>
+      <h2>[ CONTACT INFORMATION ]</h2>
+
+      <h3>CORPORATE AFFAIRS</h3>
+      {React.Children.toArray(corporateAffairs.map((c) => <div>{c.name}</div>))}
+
+      <h3>KEY ACCOUNT MANAGERS</h3>
+      {React.Children.toArray(accountManagers.map((c) => <div>{c.name}</div>))}
+
+      <h3>MEDIA</h3>
+      {React.Children.toArray(media.map((c) => <div>{c.name}</div>))}
       {/* <div className={styles.content}>
         <div className={styles.header}>
           <div>

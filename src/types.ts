@@ -2,7 +2,7 @@ interface MarkdownRemark<T> {
   frontmatter: T;
 }
 
-interface Link {
+export interface Link {
   title: string;
   label: string;
   url: string;

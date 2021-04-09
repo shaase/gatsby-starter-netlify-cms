@@ -34,8 +34,8 @@ export default ShowPage;
 
 // GRAPHQL
 export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+  query ShowTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "show" } }) {
       frontmatter {
         slug
         title
