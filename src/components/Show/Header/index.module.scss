@@ -1,3 +1,11 @@
 .header {
   display: block;
 }
+
+.left {
+  flex: 0 0 60%;
+}
+
+.right {
+  flex: 0 0 40%;
+}

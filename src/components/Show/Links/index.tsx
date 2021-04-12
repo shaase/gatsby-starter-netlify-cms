@@ -1,17 +1,26 @@
 import React from "react";
+import { Link } from "gatsby";
 import parse from "html-react-parser";
-import { Link } from "../../types";
+import { Link as ShowLink } from "../../../types";
 import styles from "./index.module.scss";
 
 interface Props {
-  links: Link[];
+  links: ShowLink[];
 }
 
 const Links: React.FC<Props> = ({ links }: Props) => {
   return (
     <div className={styles.links}>
       {React.Children.toArray(
-        links.map((link) => <a href={link.url}>{parse(link.label)}</a>)
+        links.map((link) => (
+          <>
+            {link.url.includes("http") ? (
+              <a href={link.url}>{parse(link.label)}</a>
+            ) : (
+              <Link to={link.url}>{parse(link.label)}</Link>
+            )}
+          </>
+        ))
       )}
     </div>
   );

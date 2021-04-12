@@ -41,6 +41,7 @@ export interface Contacts {
 
 export interface Show {
   title: string;
+  products: string[];
   links: Link[];
 }
 

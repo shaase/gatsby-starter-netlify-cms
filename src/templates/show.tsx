@@ -32,8 +32,11 @@ const ShowPage: React.FC<PageProps> = ({ data }: PageProps) => {
 
   const { title, links: stringLinks } = show.frontmatter;
   const links = stringLinks.map((l) => linkDic[l]);
+  const products = links
+    .filter((l) => l.title.includes("Lenvima") || l.title.includes("Halaven"))
+    .map((l) => l.label);
 
-  return <Layout>{<ShowTemplate show={{ title, links }} />}</Layout>;
+  return <Layout>{<ShowTemplate show={{ title, links, products }} />}</Layout>;
 };
 
 export default ShowPage;

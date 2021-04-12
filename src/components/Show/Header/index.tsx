@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
-import logo from "../../img/eisai_logo.png";
+import logo from "../../../img/eisai_logo.png";
 
 const Header: React.FC = () => {
   return (

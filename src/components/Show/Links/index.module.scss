@@ -1,0 +1,13 @@
+@import "../../variables.scss";
+
+.links {
+  display: block;
+  background-color: $blue;
+  color: white;
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+}

@@ -11,21 +11,20 @@ interface Props {
   show: Show;
 }
 
-const Show: React.FC<Props> = ({ show }: Props) => {
-  const { links } = show;
-  const products = links
-    .filter((l) => l.title.includes("Lenvima") || l.title.includes("Halaven"))
-    .map((l) => l.label);
+const ShowComponent: React.FC<Props> = ({ show }: Props) => {
+  const { links, products } = show;
 
   return (
     <div className={styles.container}>
-      <Disclaimer products={products} />
-      <Header />
-      <Links links={links} />
-      <Chevron />
-      <Mission />
+      <div className={styles.content}>
+        <Disclaimer products={products} />
+        <Header />
+        <Links links={links} />
+        <Chevron />
+        <Mission />
+      </div>
     </div>
   );
 };
 
-export default Show;
+export default ShowComponent;
