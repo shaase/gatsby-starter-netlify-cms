@@ -1,8 +1,8 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Contact } from "../../../types";
-// import Profile from "./profile";
 import styles from "./index.module.scss";
-import email from "../../../img/contact/email.svg";
+import mail from "../../../images/email.svg";
 
 interface Props {
   profiles: Contact[];
@@ -12,23 +12,35 @@ const Profiles: React.FC<Props> = ({ profiles }: Props) => {
   return (
     <div className={styles.profiles}>
       {React.Children.toArray(
-        profiles.map((c) => (
-          <div className={styles.profile}>
-            <div className={styles.photo}>
-              <img src={c.photo} alt={c.name} />
-            </div>
+        profiles.map((c) => {
+          const image = getImage(c.photo);
+          return (
+            <div className={styles.profile}>
+              <div className={styles.photo}>
+                {image !== undefined && (
+                  <GatsbyImage image={image} alt={c.name} />
+                )}
+              </div>
 
-            <div className={styles.info}>
-              <h1>{name}</h1>
-              <h2>{c.title}</h2>
+              <div className={styles.info}>
+                <h1>{c.name}</h1>
+                <h2>{c.title}</h2>
 
-              <a href={`mailto:${c.email}`}>
-                <img src={email} alt="email" />
-                <div>{c.email}</div>
-              </a>
+                {c.email === undefined ? (
+                  <a href={`mailto:ESI_OncSalesInfo@eisai.com`}>
+                    <img src={mail} alt="Email" />
+                    <div>ESI_OncSalesInfo@eisai.com</div>
+                  </a>
+                ) : (
+                  <a href={`mailto:${c.email}`}>
+                    <img src={mail} alt="Email" />
+                    <div>{c.email}</div>
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
-        ))
+          );
+        })
       )}
     </div>
   );

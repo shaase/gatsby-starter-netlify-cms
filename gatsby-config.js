@@ -7,6 +7,9 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-scss-typescript",
       options: {
@@ -27,10 +30,11 @@ module.exports = {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/static/img`,
+        path: `${__dirname}/static/images`,
         name: "uploads",
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -55,12 +59,10 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/img`,
+        path: `${__dirname}/src/images`,
         name: "images",
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -99,6 +101,5 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
-    "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 };

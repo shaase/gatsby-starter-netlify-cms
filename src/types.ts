@@ -1,3 +1,5 @@
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
 interface MarkdownRemark<T> {
   frontmatter: T;
 }
@@ -7,6 +9,8 @@ export interface Link {
   label: string;
   url: string;
 }
+
+// declare type ImageDataLike = FileNode | IGatsbyImageDataParent | IGatsbyImageData;
 
 export interface MarkdownData<T> {
   markdownRemark: MarkdownRemark<T>;
@@ -28,9 +32,9 @@ export interface ShowMarkdown {
 export interface Contact {
   name: string;
   title: string;
-  photo: string;
   email?: string;
   region?: string;
+  photo: IGatsbyImageData;
 }
 
 export interface Contacts {

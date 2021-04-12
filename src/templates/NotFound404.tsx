@@ -23,7 +23,6 @@ interface PageProps {
 }
 
 const NotFoundPage: React.FC<PageProps> = ({ data }: PageProps) => {
-  console.log(data);
   const { title, message } = data.markdownRemark.frontmatter;
 
   return (

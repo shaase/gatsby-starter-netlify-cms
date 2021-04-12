@@ -43,19 +43,31 @@ export const pageQuery = graphql`
           name
           title
           email
-          photo
+          photo {
+            childImageSharp {
+              gatsbyImageData(width: 200)
+            }
+          }
         }
         accountManagers {
           name
           title
-          photo
           region
+          photo {
+            childImageSharp {
+              gatsbyImageData(width: 200)
+            }
+          }
         }
         media {
           name
           title
           email
-          photo
+          photo {
+            childImageSharp {
+              gatsbyImageData(width: 200)
+            }
+          }
         }
       }
     }
