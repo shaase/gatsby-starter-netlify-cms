@@ -1,0 +1,21 @@
+.profiles {
+  display: flex;
+}
+
+.profile {
+  display: flex;
+}
+
+.photo {
+  display: block;
+}
+
+.info {
+  display: block;
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+}

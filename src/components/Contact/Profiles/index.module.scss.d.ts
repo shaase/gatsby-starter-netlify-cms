@@ -1,7 +1,9 @@
 declare namespace IndexModuleScssNamespace {
   export interface IIndexModuleScss {
-    container: string;
-    content: string;
+    info: string;
+    photo: string;
+    profile: string;
+    profiles: string;
   }
 }
 

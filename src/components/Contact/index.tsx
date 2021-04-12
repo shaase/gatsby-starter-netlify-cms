@@ -1,7 +1,9 @@
 import React from "react";
 import { Contacts } from "../../types";
-// import Profile from "./profile";
-// import styles from "./index.module.scss";
+import Header from "./Header";
+import Profiles from "./Profiles";
+import Chevron from "../Show/Chevron";
+import styles from "./index.module.scss";
 
 interface Props {
   contacts: Contacts;
@@ -10,69 +12,22 @@ interface Props {
 const Contact: React.FC<Props> = ({ contacts }: Props) => {
   const { corporateAffairs, accountManagers, media } = contacts;
   return (
-    <div>
-      <h1>EISAI ONCOLOGY</h1>
-      <h2>[ CONTACT INFORMATION ]</h2>
+    <div className={styles.container}>
+      <Header />
 
       <h3>CORPORATE AFFAIRS</h3>
-      {React.Children.toArray(corporateAffairs.map((c) => <div>{c.name}</div>))}
+      <Profiles profiles={corporateAffairs} />
 
       <h3>KEY ACCOUNT MANAGERS</h3>
-      {React.Children.toArray(accountManagers.map((c) => <div>{c.name}</div>))}
+      <Profiles profiles={accountManagers} />
 
       <h3>MEDIA</h3>
-      {React.Children.toArray(media.map((c) => <div>{c.name}</div>))}
-      {/* <div className={styles.content}>
-        <div className={styles.header}>
-          <div>
-            <h1>EISAI ONCOLOGY</h1>
-            <h2>[ CONTACT INFORMATION ]</h2>
-          </div>
+      <Profiles profiles={media} />
 
-          <a href="http://eisaionccongresses.com">
-            <img
-              className={styles.logo}
-              src="images/logo.svg"
-              alt="Eisai logo"
-            />
-          </a>
-        </div>
+      <h3>MEDICAL SCIENCE LIAISONS (MSLs)</h3>
+      <Profiles profiles={[]} />
 
-        <h3>CORPORATE AFFAIRS</h3>
-        <div className={styles.section}>
-          {React.Children.toArray(
-            corporateAffairs.map((c) => <Profile contact={c} />)
-          )}
-        </div>
-
-        <h3>KEY ACCOUNT MANAGERS</h3>
-        <div className={styles.section}>
-          {React.Children.toArray(
-            accountManagers.map((c) => <Profile contact={c} />)
-          )}
-        </div>
-
-        <h3>MEDIA</h3>
-        <div className={styles.section}>
-          {React.Children.toArray(media.map((c) => <Profile contact={c} />))}
-        </div>
-
-        <h3>MEDICAL SCIENCE LIAISONS (MSLs)</h3>
-        <div className={styles.section}>
-          <div className={styles.msls}>
-            <h4>To reach a Medical Science Liaison, please email us at:</h4>
-            <a href="mailto:ESI_OncMSLContact@eisai.com">
-              <img src="images/email.svg" alt="email" />
-              <div>ESI_OncMSLContact@eisai.com</div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.chevron}>
-        <img src="images/chevron.svg" alt="page arrow" />
-      </div>
-      <div className={styles.bottom}></div> */}
+      <Chevron />
     </div>
   );
 };
