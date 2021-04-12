@@ -1,1 +1,25 @@
 $blue: #184478;
+
+@mixin page_padding($prop) {
+  #{$prop}: 0;
+
+  @media (max-width: 1200px) {
+    #{$prop}: 40px;
+  }
+
+  @media (max-width: 768px) {
+    #{$prop}: 36px;
+  }
+
+  @media (max-width: 500px) {
+    #{$prop}: 30px;
+  }
+
+  @media (max-width: 400px) {
+    #{$prop}: 20px;
+  }
+
+  @media (max-width: 320px) {
+    #{$prop}: 8px;
+  }
+}
